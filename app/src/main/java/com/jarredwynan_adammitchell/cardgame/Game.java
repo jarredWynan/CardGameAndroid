@@ -1,9 +1,12 @@
 package com.jarredwynan_adammitchell.cardgame;
 
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 
 public class Game extends ActionBarActivity {
@@ -12,7 +15,24 @@ public class Game extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        setupButtons();
     }
+
+    // Completed by Jarred Wynan ----------------
+    private void setupButtons() {
+        ImageButton btn = (ImageButton) findViewById(R.id.card11);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(R.id.card11));
+                btn.setImageResource(R.mipmap.card10);
+            }
+        });
+    }
+    // --------------------------------------------
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
