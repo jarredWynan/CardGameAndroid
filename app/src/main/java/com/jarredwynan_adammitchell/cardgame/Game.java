@@ -34,6 +34,40 @@ public class Game extends ActionBarActivity {
     }
     // --------------------------------------------
 
+    //private void randomPlacement()
+    // {
+    //      Object slots[] = new array[20];
+    //
+    //      ImageButton images[] = new array[20];
+    //      //assign images[] with the 20 images (one, one, two, two, etc)
+    //
+    //      //there's 20 different slots array of these slots "slots"
+    //      for(int i = 0;i < 20; i++)
+    //      {
+    //          slots[i] = findImage();
+    //      }
+    // }
+
+    //private void findImage()
+    // {
+    //      Object image;
+    //      bool found = false;
+    //      while(!found)
+    //      {
+    //          Random rand = new Random();
+    //          int randomInt = rand.nextInt(19) + 0;
+    //
+    //          if(images[randomInt] != null)
+    //          {
+    //              image = images[randomInt];
+    //              images[randomInt] = null;
+    //              found = true;
+    //          }
+    //      }
+    //
+    //      return image;
+    // }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
