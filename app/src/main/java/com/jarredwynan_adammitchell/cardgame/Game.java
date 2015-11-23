@@ -120,9 +120,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[0][2]));
-                int n = gameField[0][2];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[0][2]));
+                    int n = gameField[0][2];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -132,9 +142,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[0][3]));
-                int n = gameField[0][3];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[0][3]));
+                    int n = gameField[0][3];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -144,9 +164,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[1][0]));
-                int n = gameField[1][0];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[1][0]));
+                    int n = gameField[1][0];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -156,9 +186,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[1][1]));
-                int n = gameField[1][1];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[1][1]));
+                    int n = gameField[1][1];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -168,9 +208,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[1][2]));
-                int n = gameField[1][2];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[1][2]));
+                    int n = gameField[1][2];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -180,9 +230,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[1][3]));
-                int n = gameField[1][3];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[1][3]));
+                    int n = gameField[1][3];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -192,9 +252,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[2][0]));
-                int n = gameField[2][0];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[2][0]));
+                    int n = gameField[2][0];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -204,9 +274,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[2][1]));
-                int n = gameField[2][1];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[2][1]));
+                    int n = gameField[2][1];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -216,9 +296,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[2][2]));
-                int n = gameField[2][2];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[2][2]));
+                    int n = gameField[2][2];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -228,9 +318,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[2][3]));
-                int n = gameField[2][3];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[2][3]));
+                    int n = gameField[2][3];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -240,9 +340,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[3][0]));
-                int n = gameField[3][0];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[3][0]));
+                    int n = gameField[3][0];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -252,9 +362,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[3][1]));
-                int n = gameField[3][1];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[3][1]));
+                    int n = gameField[3][1];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -264,9 +384,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[3][2]));
-                int n = gameField[3][2];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[3][2]));
+                    int n = gameField[3][2];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -276,9 +406,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[3][3]));
-                int n = gameField[3][3];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[3][3]));
+                    int n = gameField[3][3];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -288,9 +428,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[4][0]));
-                int n = gameField[4][0];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[4][0]));
+                    int n = gameField[4][0];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -300,9 +450,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[4][1]));
-                int n = gameField[4][1];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[4][1]));
+                    int n = gameField[4][1];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -312,9 +472,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[4][2]));
-                int n = gameField[4][2];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[4][2]));
+                    int n = gameField[4][2];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -324,16 +494,38 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[4][3]));
-                int n = gameField[4][3];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[4][3]));
+                    int n = gameField[4][3];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
     }
 
     private void finishTurn(int ID1, int ID2){
         if (ID1 == ID2){
-            // do shit
+            // turn cards invisible
+            for(int i = 0; i < 5;i++)
+            {
+                for(int j = 0; j < 4;j++)
+                {
+                    if(ID1 == gameField[i][j])
+                    {
+                        ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
+                        //btn.setImageResource(cardImages[0]);
+
+                    }
+                }
+            }
         }
         else {
             // hold cards face up for 2 seconds then flip back over
