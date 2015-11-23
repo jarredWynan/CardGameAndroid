@@ -1,12 +1,16 @@
 package com.jarredwynan_adammitchell.cardgame;
 
 import android.media.Image;
+import android.os.Debug;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -31,11 +35,14 @@ public class Game extends ActionBarActivity {
 
     private int gameField[][] = new int [5][4];// holds ints 1-10, which are the cards, 0 for empty
 
+    private boolean firstClick = false;
+    private boolean secondClick = false; // make sure user can't press another card while selected cards are being displayed
+    private int selectedCardID = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        //setContentView(R.layout.activity_startpage);
 
         setupButtons();
     }
@@ -70,9 +77,19 @@ public class Game extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[0][0]));
-                int n = gameField[0][0];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[0][0]));
+                    int n = gameField[0][0];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -81,10 +98,19 @@ public class Game extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(cardField[0][1]));
-                int n = gameField[0][1];// get card stored in this cell
-                btn.setImageResource(cardImages[n]);
+                if (!secondClick) {
+                    ImageButton btn = (ImageButton) (findViewById(cardField[0][1]));
+                    int n = gameField[0][1];// get card stored in this cell
+                    btn.setImageResource(cardImages[n]);
+
+                    if (firstClick == false) {
+                        selectedCardID = n; // gets card ID stored in this cell
+                        firstClick = true;
+                    } else if (firstClick == true && secondClick == false) {
+                        secondClick = true;
+                        finishTurn(selectedCardID, n);
+                    }
+                }
             }
         });
 
@@ -303,6 +329,28 @@ public class Game extends ActionBarActivity {
                 btn.setImageResource(cardImages[n]);
             }
         });
+    }
+
+    private void finishTurn(int ID1, int ID2){
+        if (ID1 == ID2){
+            // do shit
+        }
+        else {
+            // hold cards face up for 2 seconds then flip back over
+            for(int i = 0; i < 5;i++)
+            {
+                for(int j = 0; j < 4;j++)
+                {
+                    if(ID1 == gameField[i][j] || ID2 == gameField[i][j])
+                    {
+                        ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
+                        btn.setImageResource(cardImages[0]);
+                    }
+                }
+            }
+        }
+        firstClick = false;
+        secondClick = false;
     }
     // -------------------------------------------
 
