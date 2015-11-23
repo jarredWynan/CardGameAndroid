@@ -8,8 +8,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Random;
+
 
 public class Game extends ActionBarActivity {
+
+    // Completed by Jarred Wynan ----------------
+
+    // store the id's of all the cards
+    private Integer cardImages[] = {R.mipmap.facedown,
+                                    R.mipmap.one, R.mipmap.two, R.mipmap.three, R.mipmap.four, R.mipmap.five,
+                                    R.mipmap.six, R.mipmap.seven, R.mipmap.eight, R.mipmap.nine, R.mipmap.ten};
+
+    // store the matrix of imagebuttons in a 2D array
+    private int cardField[][] = {{R.id.card11, R.id.card12, R.id.card13, R.id.card14}, // 5cells * 4cells = 20 cells
+                                 {R.id.card21, R.id.card22, R.id.card23, R.id.card24},
+                                 {R.id.card31, R.id.card32, R.id.card33, R.id.card34},
+                                 {R.id.card41, R.id.card42, R.id.card43, R.id.card44},
+                                 {R.id.card51, R.id.card52, R.id.card53, R.id.card54}};
+
+    private int gameField[][] = new int [5][4];// holds ints 1-10, which are the cards, 0 for empty
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,54 +39,271 @@ public class Game extends ActionBarActivity {
         setupButtons();
     }
 
-    // Completed by Jarred Wynan ----------------
+
     private void setupButtons() {
-        ImageButton btn = (ImageButton) findViewById(R.id.card11);
-        btn.setOnClickListener(new View.OnClickListener() {
+        for (int i=1; i <= 10; i++){ // go through 10 pairs and place them into the gameField
+            Random rand = new Random();
+            boolean firstCardDown = false;
+            while (!firstCardDown) {
+                int x = rand.nextInt(5); // generate random number between 0 and 4
+                int y = rand.nextInt(4);
+                if (gameField[x][y] == 0) {
+                    gameField[x][y] = i; // put down first card of the pair
+                    firstCardDown = true;
+                }
+            }
+            boolean secondCardDown = false;
+            while (!secondCardDown) {
+                int x = rand.nextInt(5); // generate random number between 0 and 4
+                int y = rand.nextInt(4);
+                if (gameField[x][y] == 0) {
+                    gameField[x][y] = i; //put down second card of the pair
+                    secondCardDown = true;
+                }
+            }
+        }
+
+        ImageButton btn11 = (ImageButton) findViewById(cardField[0][0]);
+        btn11.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // flip the card over to reveal its face
-                ImageButton btn = (ImageButton) (findViewById(R.id.card11));
-                btn.setImageResource(R.mipmap.card10);
+                ImageButton btn = (ImageButton) (findViewById(cardField[0][0]));
+                int n = gameField[0][0];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn12 = (ImageButton) findViewById(cardField[0][1]);
+        btn12.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[0][1]));
+                int n = gameField[0][1];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn13 = (ImageButton) findViewById(cardField[0][2]);
+        btn13.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[0][2]));
+                int n = gameField[0][2];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn14 = (ImageButton) findViewById(cardField[0][3]);
+        btn14.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[0][3]));
+                int n = gameField[0][3];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn21 = (ImageButton) findViewById(cardField[1][0]);
+        btn21.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[1][0]));
+                int n = gameField[1][0];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn22 = (ImageButton) findViewById(cardField[1][1]);
+        btn22.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[1][1]));
+                int n = gameField[1][1];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn23 = (ImageButton) findViewById(cardField[1][2]);
+        btn23.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[1][2]));
+                int n = gameField[1][2];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn24 = (ImageButton) findViewById(cardField[1][3]);
+        btn24.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[1][3]));
+                int n = gameField[1][3];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn31 = (ImageButton) findViewById(cardField[2][0]);
+        btn31.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[2][0]));
+                int n = gameField[2][0];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn32 = (ImageButton) findViewById(cardField[2][1]);
+        btn32.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[2][1]));
+                int n = gameField[2][1];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn33 = (ImageButton) findViewById(cardField[2][2]);
+        btn33.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[2][2]));
+                int n = gameField[2][2];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn34 = (ImageButton) findViewById(cardField[2][3]);
+        btn34.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[2][3]));
+                int n = gameField[2][3];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn41 = (ImageButton) findViewById(cardField[3][0]);
+        btn41.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[3][0]));
+                int n = gameField[3][0];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn42 = (ImageButton) findViewById(cardField[3][1]);
+        btn42.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[3][1]));
+                int n = gameField[3][1];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn43 = (ImageButton) findViewById(cardField[3][2]);
+        btn43.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[3][2]));
+                int n = gameField[3][2];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn44 = (ImageButton) findViewById(cardField[3][3]);
+        btn44.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[3][3]));
+                int n = gameField[3][3];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn51 = (ImageButton) findViewById(cardField[4][0]);
+        btn51.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[4][0]));
+                int n = gameField[4][0];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn52 = (ImageButton) findViewById(cardField[4][1]);
+        btn52.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[4][1]));
+                int n = gameField[4][1];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn53 = (ImageButton) findViewById(cardField[4][2]);
+        btn53.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[4][2]));
+                int n = gameField[4][2];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
+            }
+        });
+
+        ImageButton btn54 = (ImageButton) findViewById(cardField[4][3]);
+        btn54.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // flip the card over to reveal its face
+                ImageButton btn = (ImageButton) (findViewById(cardField[4][3]));
+                int n = gameField[4][3];// get card stored in this cell
+                btn.setImageResource(cardImages[n]);
             }
         });
     }
-    // --------------------------------------------
-
-    //private void randomPlacement()
-    // {
-    //      Object slots[] = new array[20];
-    //
-    //      ImageButton images[] = new array[20];
-    //      //assign images[] with the 20 images (one, one, two, two, etc)
-    //
-    //      //there's 20 different slots array of these slots "slots"
-    //      for(int i = 0;i < 20; i++)
-    //      {
-    //          slots[i] = findImage();
-    //      }
-    // }
-
-    //private void findImage()
-    // {
-    //      Object image;
-    //      bool found = false;
-    //      while(!found)
-    //      {
-    //          Random rand = new Random();
-    //          int randomInt = rand.nextInt(19) + 0;
-    //
-    //          if(images[randomInt] != null)
-    //          {
-    //              image = images[randomInt];
-    //              images[randomInt] = null;
-    //              found = true;
-    //          }
-    //      }
-    //
-    //      return image;
-    // }
+    // -------------------------------------------
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
