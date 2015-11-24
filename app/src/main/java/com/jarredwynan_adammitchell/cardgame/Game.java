@@ -2,19 +2,24 @@ package com.jarredwynan_adammitchell.cardgame;
 
 import android.media.Image;
 import android.os.Debug;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Game extends ActionBarActivity {
@@ -38,6 +43,9 @@ public class Game extends ActionBarActivity {
     private boolean firstClick = false;
     private boolean secondClick = false; // make sure user can't press another card while selected cards are being displayed
     private int selectedCardID = 0;
+
+    private int tempi = 0;
+    private int tempj = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -520,8 +528,10 @@ public class Game extends ActionBarActivity {
                 {
                     if(ID1 == gameField[i][j])
                     {
-                        ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
+                        //ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
                         //btn.setImageResource(cardImages[0]);
+                        firstClick = false;
+                        secondClick = false;
 
                     }
                 }
@@ -529,20 +539,33 @@ public class Game extends ActionBarActivity {
         }
         else {
             // hold cards face up for 2 seconds then flip back over
-            for(int i = 0; i < 5;i++)
+            int i = 0;
+            int j = 0;
+            for(i = 0; i < 5;i++)
             {
-                for(int j = 0; j < 4;j++)
+                for(j = 0; j < 4;j++)
                 {
+                    tempi = i;
+                    tempj = j;
                     if(ID1 == gameField[i][j] || ID2 == gameField[i][j])
                     {
-                        ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
-                        btn.setImageResource(cardImages[0]);
+                        //3 second countdown until stuff happens
+                        new CountDownTimer(3000, 1000) {
+                            private int test_i = tempi;
+                            private int test_j = tempj;
+                            public void onTick(long millisUntilFinished) {}
+
+                            public void onFinish() {
+                                ImageButton btn = (ImageButton) (findViewById(cardField[test_i][test_j]));
+                                btn.setImageResource(cardImages[0]);
+                                firstClick = false;
+                                secondClick = false;
+                            }
+                        }.start();
                     }
                 }
             }
         }
-        firstClick = false;
-        secondClick = false;
     }
     // -------------------------------------------
 
