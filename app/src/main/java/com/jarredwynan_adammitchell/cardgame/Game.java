@@ -1,5 +1,7 @@
 package com.jarredwynan_adammitchell.cardgame;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Debug;
 import android.os.CountDownTimer;
@@ -8,10 +10,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -47,7 +52,16 @@ public class Game extends ActionBarActivity {
     private int tempi = 0;
     private int tempj = 0;
 
+    private int pairCount = 0;
+
     private int score = 0;
+
+    private LinearLayout bal1;
+    private LinearLayout bal2;
+    private LinearLayout bal3;
+    private LinearLayout bal4;
+    private LinearLayout bal5;
+
     //private TextView t = (TextView) findViewById(R.id.scoreText);
 
     @Override
@@ -56,10 +70,17 @@ public class Game extends ActionBarActivity {
         setContentView(R.layout.activity_game);
 
         setupButtons();
+
+        bal1 = (LinearLayout) findViewById(R.id.balance1);
+        bal2 = (LinearLayout) findViewById(R.id.balance2);
+        bal3 = (LinearLayout) findViewById(R.id.balance3);
+        bal4 = (LinearLayout) findViewById(R.id.balance4);
+        bal5 = (LinearLayout) findViewById(R.id.balance5);
     }
 
 
     private void setupButtons() {
+        pairCount = 0;
         for (int i=1; i <= 10; i++){ // go through 10 pairs and place them into the gameField
             Random rand = new Random();
             boolean firstCardDown = false;
@@ -523,11 +544,15 @@ public class Game extends ActionBarActivity {
     }
 
     private void finishTurn(int ID1, int ID2){
+
+        //bal1.setLayoutParams(new LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT));
+
         TextView t = (TextView) findViewById(R.id.scoreText);
         score++;
         t.setText(" " + score);
         if (ID1 == ID2){
             // if all cards found, toast that player won the game, save their score
+
 
             // turn cards invisible
             for(int i = 0; i < 5;i++)
@@ -536,15 +561,31 @@ public class Game extends ActionBarActivity {
                 {
                     if(ID1 == gameField[i][j])
                     {
+                        pairCount++;
                         ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
                         btn.setVisibility(View.INVISIBLE);
+
+
                         firstClick = false;
                         secondClick = false;
+
+                        if(pairCount == 20)
+                        {
+                            Toast.makeText(getApplicationContext(), "YOU HAVE WON THE GAME!",
+                                    Toast.LENGTH_SHORT).show();
+                            Button btn2 = (Button) (findViewById(R.id.playButton2));
+                            Button btn3 = (Button) (findViewById(R.id.quitButton2));
+
+                            btn2.setVisibility(View.VISIBLE);
+                            btn3.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
         }
         else {
+
+
             // hold cards face up for 2 seconds then flip back over
             int i = 0;
             int j = 0;
@@ -573,8 +614,26 @@ public class Game extends ActionBarActivity {
                 }
             }
         }
+        //bal1.setVisibility(LinearLayout.VISIBLE);
+        //bal2.setVisibility(LinearLayout.VISIBLE);
+        //bal3.setVisibility(LinearLayout.VISIBLE);
+        //bal4.setVisibility(LinearLayout.VISIBLE);
+        //bal5.setVisibility(LinearLayout.VISIBLE);
     }
     // -------------------------------------------
+
+    public void playButton(View v)
+    {
+        Button button = (Button) v;
+        Intent i = new Intent(Game.this,Game.class);
+        startActivity(i);
+    }
+
+    public void quitButton(View v)
+    {
+        Button button = (Button) v;
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
