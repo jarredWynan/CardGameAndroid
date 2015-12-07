@@ -47,6 +47,9 @@ public class Game extends ActionBarActivity {
     private int tempi = 0;
     private int tempj = 0;
 
+    private int score = 0;
+    //private TextView t = (TextView) findViewById(R.id.scoreText);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -520,7 +523,12 @@ public class Game extends ActionBarActivity {
     }
 
     private void finishTurn(int ID1, int ID2){
+        TextView t = (TextView) findViewById(R.id.scoreText);
+        score++;
+        t.setText(" " + score);
         if (ID1 == ID2){
+            // if all cards found, toast that player won the game, save their score
+
             // turn cards invisible
             for(int i = 0; i < 5;i++)
             {
@@ -528,11 +536,10 @@ public class Game extends ActionBarActivity {
                 {
                     if(ID1 == gameField[i][j])
                     {
-                        //ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
-                        //btn.setImageResource(cardImages[0]);
+                        ImageButton btn = (ImageButton) (findViewById(cardField[i][j]));
+                        btn.setVisibility(View.INVISIBLE);
                         firstClick = false;
                         secondClick = false;
-
                     }
                 }
             }

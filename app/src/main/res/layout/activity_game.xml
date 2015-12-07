@@ -23,7 +23,8 @@
         android:layout_alignWithParentIfMissing="false"
         android:padding="5dp"
         android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="false">
+        android:layout_alignParentEnd="false"
+        android:id="@+id/linearLayout">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -388,5 +389,37 @@
                 android:clickable="true" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" 0"
+        android:id="@+id/scoreText"
+        android:layout_above="@+id/linearLayout"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Best: "
+        android:id="@+id/BestText"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/BestScore"
+        android:layout_toStartOf="@+id/BestScore" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="25"
+        android:id="@+id/BestScore"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp" />
 
 </RelativeLayout>
