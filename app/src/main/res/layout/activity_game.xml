@@ -28,8 +28,8 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -38,7 +38,10 @@
             android:weightSum="9"
             android:gravity="center|top"
             android:paddingLeft="5dp"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:id="@+id/balance1"
+            android:baselineAligned="false"
+            android:visibility="visible">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -54,7 +57,8 @@
                 android:scaleType="fitCenter"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:visibility="visible" />
 
             <ImageButton
                 android:layout_width="0dp"
@@ -70,7 +74,8 @@
                 android:scaleType="fitCenter"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:visibility="visible" />
 
             <ImageButton
                 android:layout_width="0dp"
@@ -82,7 +87,8 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:padding="5dp"
-                android:clickable="true" />
+                android:clickable="true"
+                android:visibility="visible" />
 
             <ImageButton
                 android:layout_width="0dp"
@@ -94,14 +100,15 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:padding="5dp"
-                android:clickable="true" />
+                android:clickable="true"
+                android:visibility="visible" />
 
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -110,7 +117,9 @@
             android:weightSum="9"
             android:gravity="center|top"
             android:paddingLeft="5dp"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:id="@+id/balance2"
+            android:baselineAligned="false">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -171,8 +180,8 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -181,7 +190,9 @@
             android:weightSum="9"
             android:gravity="center|top"
             android:paddingLeft="5dp"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:id="@+id/balance3"
+            android:baselineAligned="false">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -245,8 +256,8 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -255,7 +266,9 @@
             android:weightSum="9"
             android:gravity="center|top"
             android:paddingLeft="5dp"
-            android:layout_weight="10" >
+            android:layout_weight="10"
+            android:id="@+id/balance4"
+            android:baselineAligned="false">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -318,8 +331,8 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -328,7 +341,9 @@
             android:weightSum="9"
             android:gravity="center|top"
             android:paddingLeft="5dp"
-            android:layout_weight="10" >
+            android:layout_weight="10"
+            android:id="@+id/balance5"
+            android:baselineAligned="false">
 
             <ImageButton
                 android:layout_width="0dp"
@@ -414,12 +429,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="25"
+        android:text="16"
         android:id="@+id/BestScore"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="49dp"
         android:layout_marginEnd="49dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAY"
+        android:id="@+id/playButton2"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="101dp"
+        android:onClick="playButton"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:id="@+id/quitButton2"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:onClick="quitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:visibility="invisible" />
 
 </RelativeLayout>
